@@ -1,6 +1,6 @@
 import { Express } from "express";
 import swaggerUi from "swagger-ui-express";
-const swaggerDocument = require('../../../swagger.json');
+const swaggerDocument = require('yamljs').load('./swagger.yaml');;
 
 module.exports = (app: Express) => {
   app.use(

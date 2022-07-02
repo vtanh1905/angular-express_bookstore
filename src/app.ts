@@ -2,7 +2,7 @@ import "reflect-metadata";
 import * as bodyParser from "body-parser";
 import * as express from "express";
 import { Container } from "inversify";
-import { controller, InversifyExpressServer } from "inversify-express-utils";
+import { InversifyExpressServer } from "inversify-express-utils";
 
 // Connect Database
 import "./utils/mongoose";
