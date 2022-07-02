@@ -1,14 +1,16 @@
-import { injectable } from "inversify";
+import { provide } from 'inversify-binding-decorators';
 import bcrypt from "bcryptjs";
 import { User, UserModel } from "../models";
 import { generateAccessToken } from "../utils/jwt";
 
-@injectable()
+@provide('UserService')
 export class UserService {
+  constructor() {}
+
   public newUser(user: User): Promise<User> {
     return new Promise<User>(async (resolve, reject) => {
       const newUser = new UserModel(user);
-      
+
       // Email Validator
       if (!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})/g.test(user.email)) {
         reject("Email is invaild");

@@ -2,7 +2,6 @@ import { controller, httpPost } from "inversify-express-utils";
 import { Request } from "express";
 import { BookService } from "../services";
 import { inject } from "inversify";
-import { Book } from "../models";
 
 @controller("/cart")
 export class CartController {

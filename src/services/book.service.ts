@@ -1,9 +1,11 @@
-import { injectable } from "inversify";
+import { provide } from 'inversify-binding-decorators';
 import { Book, BookModel } from "../models";
 import { Pagination, CartItem } from "../entity";
 
-@injectable()
+@provide('BookService')
 export class BookService {
+  constructor() {}
+  
   public getAll(pagination: Pagination): Promise<Book[]> {
     return new Promise<Book[]>(async (resolve, reject) => {
       resolve(
