@@ -1,0 +1,33 @@
+version: '3.8'
+services:
+  mongodb:
+    image: mongo
+    container_name: mongodb
+    restart: always
+    ports:
+      - 27017:27017
+    volumes:
+      - expressjs-inversity:/database/mongodb
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=root
+      - MONGO_INITDB_ROOT_PASSWORD=123456
+      - MONGO_INITDB_DATABASE=expressjs-inversity-practise
+  server:
+    depends_on:
+      - mongodb
+    build:
+      context: ./
+      target: dev
+    restart: always
+    container_name: server
+    volumes:
+      - expressjs-inversity:/expressjs-inversity
+    command: npm run start:dev
+    ports:
+      - 3000:3000
+    environment:
+      - NOVE_END:development
+volumes:
+  expressjs-inversity:
+
+    
