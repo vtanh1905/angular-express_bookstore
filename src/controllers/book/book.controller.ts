@@ -6,7 +6,7 @@ import {
   httpPut,
 } from "inversify-express-utils";
 import { Request } from "express";
-import { BookService } from "../../services";
+import { BookService, IBookService } from "../../services";
 import { inject } from "inversify";
 import { BookPagination, Pagination } from "../../entity";
 import { Book } from "../../models";
@@ -16,7 +16,7 @@ import { IBookController } from "./interface/ibook.controller";
 
 @controller("/books")
 export class BookController implements IBookController {
-  constructor(@inject("BookService") private bookService: BookService) {}
+  constructor(@inject("BookService") private bookService: IBookService) {}
 
   @httpGet("/")
   public async get(req: Request): Promise<BookPagination> {
