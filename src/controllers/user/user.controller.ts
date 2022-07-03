@@ -2,13 +2,14 @@ import { inject } from "inversify";
 import { controller, httpPost } from "inversify-express-utils";
 import { Request } from "express";
 
-import { UserService } from "../services/user.service";
-import { User } from "../models";
-import { RequestUser } from "../entity";
-import { authenticateToken } from "../utils/jwt";
+import { UserService } from "../../services/user.service";
+import { User } from "../../models";
+import { RequestUser } from "../../entity";
+import { authenticateToken } from "../../utils/jwt";
+import { IUserController } from "./interface/iuser.controller";
 
 @controller("")
-export class UserController {
+export class UserController implements IUserController {
   constructor(@inject("UserService") private userService: UserService) {}
 
   @httpPost("/register")

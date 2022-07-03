@@ -6,15 +6,16 @@ import {
   httpPut,
 } from "inversify-express-utils";
 import { Request } from "express";
-import { BookService } from "../services";
+import { BookService } from "../../services";
 import { inject } from "inversify";
-import { BookPagination, Pagination } from "../entity";
-import { Book } from "../models";
-import { RequestUser } from "../entity";
-import { authenticateToken } from "../utils/jwt";
+import { BookPagination, Pagination } from "../../entity";
+import { Book } from "../../models";
+import { RequestUser } from "../../entity";
+import { authenticateToken } from "../../utils/jwt";
+import { IBookController } from "./interface/ibook.controller";
 
 @controller("/books")
-export class BookController {
+export class BookController implements IBookController {
   constructor(@inject("BookService") private bookService: BookService) {}
 
   @httpGet("/")

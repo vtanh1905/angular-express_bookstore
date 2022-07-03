@@ -2,7 +2,7 @@ FROM node:14-alpine as base
 
 WORKDIR /src
 COPY package.*.json /
-COPY swagger.json /
+COPY swagger.yaml /
 EXPOSE 3000
 
 FROM base as dev
