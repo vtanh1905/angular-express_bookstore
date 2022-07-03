@@ -12,10 +12,11 @@ import { inject } from "inversify";
 import { Book, BookPagination, Pagination, RequestUser } from "../../models";
 import { authenticateToken } from "../../utils/jwt";
 import { IBookController } from "./interface/ibook.controller";
+import { TYPES } from "../../constants";
 
 @controller("/books")
 export class BookController implements IBookController {
-  constructor(@inject("BookService") private bookService: IBookService) {}
+  constructor(@inject(TYPES.BookService) private bookService: IBookService) {}
 
   @httpGet("/")
   public async get(req: Request): Promise<BookPagination> {

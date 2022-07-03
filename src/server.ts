@@ -1,6 +1,7 @@
 import { InversifyExpressServer } from "inversify-express-utils";
 import * as bodyParser from "body-parser";
 import * as express from "express";
+
 import container from "./ioc";
 
 // Connect Database

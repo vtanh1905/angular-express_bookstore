@@ -6,10 +6,11 @@ import { User, RequestUser } from "../../models";
 import { authenticateToken } from "../../utils/jwt";
 import { IUserController } from "./interface/iuser.controller";
 import { IUserService } from "../../services";
+import { TYPES } from "../../constants";
 
 @controller("")
 export class UserController implements IUserController {
-  constructor(@inject("UserService") private userService: IUserService) {}
+  constructor(@inject(TYPES.UserService) private userService: IUserService) {}
 
   @httpPost("/register")
   public register(req: Request): Promise<User> {

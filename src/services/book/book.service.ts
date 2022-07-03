@@ -1,12 +1,13 @@
-import { provide } from 'inversify-binding-decorators';
+import { provide } from "inversify-binding-decorators";
 
-import { Book, BookModel, Pagination, CartItem  } from "../../models";
-import { IBookService } from './interface/ibook.service';
+import { Book, BookModel, Pagination, CartItem } from "../../models";
+import { IBookService } from "./interface/ibook.service";
+import { TYPES } from "../../constants";
 
-@provide('BookService')
+@provide(TYPES.BookService)
 export class BookService implements IBookService {
   constructor() {}
-  
+
   public getAll(pagination: Pagination): Promise<Book[]> {
     return new Promise<Book[]>(async (resolve, reject) => {
       resolve(
