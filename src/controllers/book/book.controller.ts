@@ -6,11 +6,10 @@ import {
   httpPut,
 } from "inversify-express-utils";
 import { Request } from "express";
-import { BookService, IBookService } from "../../services";
+
+import { IBookService } from "../../services";
 import { inject } from "inversify";
-import { BookPagination, Pagination } from "../../entity";
-import { Book } from "../../models";
-import { RequestUser } from "../../entity";
+import { Book, BookPagination, Pagination, RequestUser } from "../../models";
 import { authenticateToken } from "../../utils/jwt";
 import { IBookController } from "./interface/ibook.controller";
 

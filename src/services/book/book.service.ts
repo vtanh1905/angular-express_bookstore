@@ -1,6 +1,6 @@
 import { provide } from 'inversify-binding-decorators';
-import { Book, BookModel } from "../../models";
-import { Pagination, CartItem } from "../../entity";
+
+import { Book, BookModel, Pagination, CartItem  } from "../../models";
 import { IBookService } from './interface/ibook.service';
 
 @provide('BookService')

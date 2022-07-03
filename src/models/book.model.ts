@@ -6,16 +6,6 @@ enum Category {
   Sport = "sport",
 }
 
-export type Book = {
-  _id: string;
-  title: string;
-  image: string;
-  category: Category;
-  quantity: number;
-  price: string;
-  description: string;
-};
-
 const bookSchema = new mongoose.Schema<Book>(
   {
     title: { type: String, required: true },
@@ -33,3 +23,21 @@ const bookSchema = new mongoose.Schema<Book>(
 );
 
 export const BookModel = mongoose.model("Book", bookSchema);
+
+export type Book = {
+  _id: string;
+  title: string;
+  image: string;
+  category: Category;
+  quantity: number;
+  price: string;
+  description: string;
+};
+
+export type BookPagination = {
+  data: Book[];
+  limit: number;
+  page: number;
+  length: number;
+};
+

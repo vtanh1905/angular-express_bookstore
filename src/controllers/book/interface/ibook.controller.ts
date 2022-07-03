@@ -1,7 +1,6 @@
 import { Request } from "express";
 
-import { BookPagination, RequestUser  } from "../../../entity";
-import { Book } from "../../../models";
+import { BookPagination, RequestUser, Book } from "../../../models";
 
 
 export interface IBookController {

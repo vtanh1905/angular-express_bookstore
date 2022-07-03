@@ -1,6 +1,6 @@
 import * as jwt from "jsonwebtoken";
 import { Response, NextFunction } from "express";
-import { RequestUser } from "../../entity";
+import { RequestUser } from "../../models";
 
 export function generateAccessToken(json: Object) {
   return jwt.sign(json, "TOKEN_SECRET", { expiresIn: "180000s" });

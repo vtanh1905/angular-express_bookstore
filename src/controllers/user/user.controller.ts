@@ -2,9 +2,7 @@ import { inject } from "inversify";
 import { controller, httpPost } from "inversify-express-utils";
 import { Request } from "express";
 
-import { UserService } from "../../services/user/user.service";
-import { User } from "../../models";
-import { RequestUser } from "../../entity";
+import { User, RequestUser } from "../../models";
 import { authenticateToken } from "../../utils/jwt";
 import { IUserController } from "./interface/iuser.controller";
 import { IUserService } from "../../services";
