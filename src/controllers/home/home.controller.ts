@@ -6,7 +6,7 @@ import { IHomeController } from "./interface/ihome.controller";
 export class HomeController implements IHomeController {
   @httpGet("/")
   public async get(req: Request, res: Response): Promise<number> {
-    res.sendFile("../web-application/index.html");
+    res.sendFile("./web/dist/index.html");
     return 1;
   }
 }

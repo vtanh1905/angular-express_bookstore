@@ -1,11 +1,12 @@
-import { provide } from 'inversify-binding-decorators';
+import { provide } from "inversify-binding-decorators";
 import bcrypt from "bcryptjs";
 
 import { User, UserModel } from "../../models";
 import { generateAccessToken } from "../../utils/jwt";
+import { IUserService } from "./interface/iuser.service";
 
-@provide('UserService')
-export class UserService {
+@provide("UserService")
+export class UserService implements IUserService {
   constructor() {}
 
   public newUser(user: User): Promise<User> {

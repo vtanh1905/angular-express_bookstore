@@ -1,8 +1,7 @@
-
 import { InversifyExpressServer } from "inversify-express-utils";
 import * as bodyParser from "body-parser";
 import * as express from "express";
-import container from './ioc';
+import container from "./ioc";
 
 // Connect Database
 import "./utils/mongoose";
@@ -21,7 +20,7 @@ server.setConfig((app: express.Application): void => {
   require("./utils/swagger")(app); // Config Swagger
 
   //Static Web Application HTML
-  app.use(express.static("./web-application"));
+  app.use(express.static("./src/web/dist"));
 });
 // ================== create server =========================
 
