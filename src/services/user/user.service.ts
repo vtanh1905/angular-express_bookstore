@@ -1,7 +1,7 @@
 import { provide } from 'inversify-binding-decorators';
 import bcrypt from "bcryptjs";
-import { User, UserModel } from "../models";
-import { generateAccessToken } from "../utils/jwt";
+import { User, UserModel } from "../../models";
+import { generateAccessToken } from "../../utils/jwt";
 
 @provide('UserService')
 export class UserService {

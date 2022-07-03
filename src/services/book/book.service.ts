@@ -1,9 +1,10 @@
 import { provide } from 'inversify-binding-decorators';
-import { Book, BookModel } from "../models";
-import { Pagination, CartItem } from "../entity";
+import { Book, BookModel } from "../../models";
+import { Pagination, CartItem } from "../../entity";
+import { IBookService } from './interface/ibook.service';
 
 @provide('BookService')
-export class BookService {
+export class BookService implements IBookService {
   constructor() {}
   
   public getAll(pagination: Pagination): Promise<Book[]> {
