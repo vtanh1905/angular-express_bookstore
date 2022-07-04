@@ -1,8 +1,8 @@
 import { provide } from "inversify-binding-decorators";
 
-import { Book, BookModel, Pagination, CartItem } from "../../models";
-import { IBookService } from "./interface/ibook.service";
-import { TYPES } from "../../constants";
+import { Book, BookModel, Pagination, CartItem } from "../models";
+import { IBookService } from "./interfaces/ibook.service";
+import { TYPES } from "../constants";
 
 @provide(TYPES.BookService)
 export class BookService implements IBookService {

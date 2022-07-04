@@ -1,10 +1,10 @@
 import { provide } from "inversify-binding-decorators";
 import bcrypt from "bcryptjs";
 
-import { User, UserModel } from "../../models";
-import { generateAccessToken } from "../../utils/jwt";
-import { IUserService } from "./interface/iuser.service";
-import { TYPES } from "../../constants";
+import { User, UserModel } from "../models";
+import { generateAccessToken } from "../utils/jwt";
+import { IUserService } from "./interfaces/iuser.service";
+import { TYPES } from "../constants";
 
 @provide(TYPES.UserService)
 export class UserService implements IUserService {

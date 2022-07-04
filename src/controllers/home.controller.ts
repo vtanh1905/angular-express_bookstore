@@ -1,8 +1,8 @@
 import { controller, httpGet } from "inversify-express-utils";
 import { Request, Response } from "express";
-import { IHomeController } from "./interface/ihome.controller";
+import { IHomeController } from "./interfaces/ihome.controller";
 import { inject } from "inversify";
-import { BookReponsitory } from "../../repositories/book.reponsitory";
+import { BookReponsitory } from "../repositories/book.reponsitory";
 
 
 @controller("")

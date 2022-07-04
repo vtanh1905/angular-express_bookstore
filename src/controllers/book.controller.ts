@@ -7,12 +7,12 @@ import {
 } from "inversify-express-utils";
 import { Request } from "express";
 
-import { IBookService } from "../../services";
+import { IBookService } from "../services";
 import { inject } from "inversify";
-import { Book, BookPagination, Pagination, RequestUser } from "../../models";
-import { authenticateToken } from "../../utils/jwt";
-import { IBookController } from "./interface/ibook.controller";
-import { TYPES } from "../../constants";
+import { Book, BookPagination, Pagination, RequestUser } from "../models";
+import { authenticateToken } from "../utils/jwt";
+import { IBookController } from "./interfaces/ibook.controller";
+import { TYPES } from "../constants";
 
 @controller("/books")
 export class BookController implements IBookController {

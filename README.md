@@ -11,7 +11,7 @@ First Second: to build index.html
 ```sh
 cd expressjs-inversity/src/web
 npm i
-npm build
+npm run build
 ```
 Finally: Done ✅
 ```sh

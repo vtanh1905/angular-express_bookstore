@@ -1,6 +1,6 @@
 import { controller, httpGet } from "inversify-express-utils";
 
-import { ICategoryController } from "./interface/icategory.controller";
+import { ICategoryController } from "./interfaces/icategory.controller";
 
 
 @controller("/category")
