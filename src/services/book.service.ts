@@ -1,88 +1,61 @@
 import { provide } from "inversify-binding-decorators";
+import { inject } from "inversify";
 
-import { Book, BookModel, Pagination, CartItem } from "../models";
+import { Pagination, CartItem } from "../models";
 import { IBookService } from "./interfaces/ibook.service";
 import { TYPES } from "../constants";
+import { Book, BookReponsitory } from "../repositories";
 
 @provide(TYPES.BookService)
 export class BookService implements IBookService {
-  constructor() {}
+  constructor(
+    @inject("BookReponsitory") private bookReponsitory: BookReponsitory
+  ) {}
 
   public getAll(pagination: Pagination): Promise<Book[]> {
-    return new Promise<Book[]>(async (resolve, reject) => {
-      resolve(
-        await BookModel.find({})
-          .limit(pagination.limit)
-          .skip(pagination.page * pagination.limit)
-          .exec()
-      );
-    });
+    return this.bookReponsitory.find(
+      pagination.limit,
+      pagination.page * pagination.limit
+    );
   }
 
   public getLength(): Promise<number> {
-    return new Promise<number>(async (resolve, reject) => {
-      resolve(await BookModel.count().exec());
-    });
+    return this.bookReponsitory.count();
   }
 
   public addPost(book: Book): Promise<Book> {
-    return new Promise<Book>(async (resolve, reject) => {
-      const newBook = new BookModel(book);
-      resolve(newBook.save());
-    });
+    return this.bookReponsitory.create(book);
   }
 
   public updatePost(book: Book): Promise<Book> {
     return new Promise<Book>(async (resolve, reject) => {
       try {
-        const bookWillUpdate = await BookModel.findOne({ _id: book._id });
+        const bookWillUpdate = await this.bookReponsitory.findOne(book._id);
 
         if (bookWillUpdate === null) {
           reject(Error("The book is not exits"));
           return;
         }
-        if (book !== null) {
-          bookWillUpdate.overwrite({
-            ...bookWillUpdate,
-            ...book,
-          });
-        }
-        resolve(await bookWillUpdate.save());
+        resolve(await this.bookReponsitory.updateOne(book));
       } catch (error) {
         reject(error);
       }
     });
   }
 
-  public deletePost(id: string): Promise<any> {
-    return new Promise<any>(async (resolve, reject) => {
-      const book = await BookModel.findById(id);
-      if (book === null) {
-        reject(Error("The book is not exits"));
-      }
-
-      resolve(await BookModel.deleteOne({ _id: id }));
-    });
+  public deletePost(id: any): Promise<any> {
+    return this.bookReponsitory.deleteOne(id);
   }
 
   public updateManyQuality(arr: CartItem[]): Promise<any> {
     return new Promise<any>(async (resolve, reject) => {
       try {
-        console.log(arr);
         for (let i = 0; i < arr.length; ++i) {
-          const bookWillUpdate = await BookModel.findOne({ _id: arr[i]._id });
+          const bookWillUpdate = await this.bookReponsitory.findOne(arr[i]._id);
           if (bookWillUpdate === null) {
             continue;
           }
-          bookWillUpdate.overwrite({
-            title: bookWillUpdate.title,
-            category: bookWillUpdate.category,
-            image: bookWillUpdate.image,
-            price: bookWillUpdate.price,
-            description: bookWillUpdate.description,
-            quantity: bookWillUpdate.quantity - arr[i].count,
-          });
-          await bookWillUpdate.save();
+          await this.bookReponsitory.updateOne(bookWillUpdate as Book);
         }
         resolve("Done");
       } catch (error) {
