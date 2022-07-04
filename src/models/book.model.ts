@@ -1,10 +1,5 @@
 import mongoose from "mongoose";
 
-enum Category {
-  Drama = "drama",
-  Comedy = "comedy",
-  Sport = "sport",
-}
 
 const bookSchema = new mongoose.Schema<Book>(
   {
@@ -23,6 +18,12 @@ const bookSchema = new mongoose.Schema<Book>(
 );
 
 export const BookModel = mongoose.model("Book", bookSchema);
+
+enum Category {
+  Drama = "drama",
+  Comedy = "comedy",
+  Sport = "sport",
+}
 
 export type Book = {
   _id: string;

@@ -24,6 +24,7 @@ Access to http://localhost:3000/
 | Create a mongoose class | ❌ |
 | ErrorHandler| ❌ |
 | Refactor model folder | ❌ |
-| Seed Data | ❌  |
+| Seed Data | ❌ |
 | Set up Enviroment | ❌ |
-| Set up Logger | ❌  |
+| Set up Logger | ❌ |
+| Set up tslint.json file | ❌ |
