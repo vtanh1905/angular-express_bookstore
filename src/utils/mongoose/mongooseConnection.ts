@@ -1,11 +1,5 @@
-import { fluentProvide, provide } from "inversify-binding-decorators";
+import { fluentProvide } from "inversify-binding-decorators";
 import { Connection, createConnection, ConnectOptions } from "mongoose";
-
-// import constants from './constants';
-// import { Logger } from './Logger';
-// import { ProvideSingleton } from '../ioc';
-
-// mongoose.set('debug', Logger.shouldLog);
 
 @fluentProvide("MongooseConnection").inSingletonScope().done()
 export class MongooseConnection {
