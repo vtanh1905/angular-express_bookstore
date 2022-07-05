@@ -62,7 +62,7 @@ export class BookService implements IBookService {
 
           await this.bookReponsitory.updateOne(
             bookWillUpdate[0]._id,
-            bookWillUpdate[0] as Book
+            bookWillUpdate[0]
           );
         }
         resolve("Done");
