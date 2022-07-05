@@ -1,8 +1,9 @@
 import { injectable } from "inversify";
 import { Model, Types, Schema, createConnection } from "mongoose";
+import { IBaseReponsitory } from "./interfaces/ibase.reponsitory";
 
 @injectable()
-export abstract class BaseReponsitory<EntityType> {
+export abstract class BaseReponsitory<EntityType> implements IBaseReponsitory<EntityType> {
   protected modelName: string = "base";
   protected model: Model<EntityType> = createConnection().model(
     this.modelName,
