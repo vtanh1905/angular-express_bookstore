@@ -2,11 +2,12 @@ import { inject } from "inversify";
 import { controller, httpPost } from "inversify-express-utils";
 import { Request } from "express";
 
-import { User, RequestUser } from "../models";
+import { RequestUser } from "../models";
 import { authenticateToken } from "../utils/jwt";
 import { IUserController } from "./interfaces/iuser.controller";
 import { IUserService } from "../services";
 import { TYPES } from "../constants";
+import { User } from "../repositories";
 
 @controller("")
 export class UserController implements IUserController {

@@ -3,8 +3,7 @@ import { Request, Response } from "express";
 import { IHomeController } from "./interfaces/ihome.controller";
 import { inject } from "inversify";
 import { Book, BookReponsitory } from "../repositories/book.reponsitory";
-import { UserReponsitory } from "../repositories";
-import { User } from "../models";
+import { UserReponsitory, User } from "../repositories";
 
 @controller("")
 export class HomeController implements IHomeController {
