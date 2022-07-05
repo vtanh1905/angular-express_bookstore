@@ -21,9 +21,9 @@ Access to http://localhost:3000/
 
 | To do | Status |
 | ------ | ------ |
-| Create a mongoose class | ❌ |
+| Create a mongoose class | ✅ |
 | ErrorHandler| ❌ |
-| Refactor model folder | ❌ |
+| Refactor model folder | ✅ |
 | Seed Data | ❌ |
 | Set up Enviroment | ❌ |
 | Set up Logger | ❌ |
