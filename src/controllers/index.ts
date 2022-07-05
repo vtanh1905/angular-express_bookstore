@@ -1,24 +1,19 @@
 // Book - START
-export * from "./book/interface/ibook.controller";
-export * from "./book/book.controller";
+export * from "./interfaces/ibook.controller";
+export * from "./book.controller";
 // Book - END
 
 // Cart - START
-export * from "./cart/interface/icart.controller";
-export * from "./cart/cart.controller";
+export * from "./interfaces/icart.controller";
+export * from "./cart.controller";
 // Cart - END
 
-// Category - START
-export * from "./category/interface/icategory.controller";
-export * from "./category/category.controller";
-// Category - END
-
 // Home - START
-export * from "./home/interface/ihome.controller";
-export * from "./home/home.controller";
+export * from "./interfaces/ihome.controller";
+export * from "./home.controller";
 // Home - END
 
 // User - START
-export * from "./user/interface/iuser.controller";
-export * from "./user/user.controller";
+export * from "./interfaces/iuser.controller";
+export * from "./user.controller";
 // User - END

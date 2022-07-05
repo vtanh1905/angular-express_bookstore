@@ -1,6 +1,6 @@
 import { Request } from "express";
 
-import { User, RequestUser } from "../../../models";
+import { User, RequestUser } from "../../models";
 
 export interface IUserController {
   register(req: Request): Promise<User>;

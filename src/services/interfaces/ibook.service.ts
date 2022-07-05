@@ -1,4 +1,5 @@
-import { Book, Pagination, CartItem } from "../../../models";
+import { Pagination, CartItem } from "../../models";
+import { Book, } from "../../repositories";
 
 export interface IBookService {
   getAll(pagination: Pagination): Promise<Book[]>;

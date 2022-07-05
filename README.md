@@ -11,7 +11,7 @@ First Second: to build index.html
 ```sh
 cd expressjs-inversity/src/web
 npm i
-npm build
+npm run build
 ```
 Finally: Done ✅
 ```sh
@@ -24,6 +24,7 @@ Access to http://localhost:3000/
 | Create a mongoose class | ❌ |
 | ErrorHandler| ❌ |
 | Refactor model folder | ❌ |
-| Seed Data | ❌  |
+| Seed Data | ❌ |
 | Set up Enviroment | ❌ |
-| Set up Logger | ❌  |
+| Set up Logger | ❌ |
+| Set up tslint.json file | ❌ |

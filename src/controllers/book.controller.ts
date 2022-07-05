@@ -7,19 +7,19 @@ import {
 } from "inversify-express-utils";
 import { Request } from "express";
 
-import { IBookService } from "../../services";
+import { IBookService } from "../services";
 import { inject } from "inversify";
-import { Book, BookPagination, Pagination, RequestUser } from "../../models";
-import { authenticateToken } from "../../utils/jwt";
-import { IBookController } from "./interface/ibook.controller";
-import { TYPES } from "../../constants";
+import { Pagination, RequestUser } from "../models";
+import { authenticateToken } from "../utils/jwt";
+import { IBookController } from "./interfaces/ibook.controller";
+import { TYPES } from "../constants";
 
 @controller("/books")
 export class BookController implements IBookController {
   constructor(@inject(TYPES.BookService) private bookService: IBookService) {}
 
   @httpGet("/")
-  public async get(req: Request): Promise<BookPagination> {
+  public async get(req: Request): Promise<any> {
     const { limit, page } = req.query as unknown as Pagination;
     return {
       data: await this.bookService.getAll({ limit, page }),
@@ -30,12 +30,12 @@ export class BookController implements IBookController {
   }
 
   @httpPost("/", authenticateToken)
-  public async create(req: RequestUser): Promise<Book> {
+  public async create(req: RequestUser): Promise<any> {
     return this.bookService.addPost(req.body);
   }
 
   @httpPut("/", authenticateToken)
-  public async update(req: Request): Promise<Book> {
+  public async update(req: Request): Promise<any> {
     return this.bookService.updatePost(req.body);
   }
 
