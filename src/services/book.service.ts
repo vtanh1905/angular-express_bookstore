@@ -30,13 +30,15 @@ export class BookService implements IBookService {
   public updatePost(book: Book): Promise<Book> {
     return new Promise<Book>(async (resolve, reject) => {
       try {
-        const bookWillUpdate = await this.bookReponsitory.findOne(book._id);
+        const bookWillUpdate: Book = (await this.bookReponsitory.findOne(
+          book._id
+        )) as Book;
 
         if (bookWillUpdate === null) {
           reject(Error("The book is not exits"));
           return;
         }
-        resolve(await this.bookReponsitory.updateOne(book));
+        resolve(await this.bookReponsitory.updateOne(book._id, book));
       } catch (error) {
         reject(error);
       }
@@ -51,11 +53,16 @@ export class BookService implements IBookService {
     return new Promise<any>(async (resolve, reject) => {
       try {
         for (let i = 0; i < arr.length; ++i) {
-          const bookWillUpdate = await this.bookReponsitory.findOne(arr[i]._id);
+          const bookWillUpdate: Book = (await this.bookReponsitory.findOne(
+            arr[i]._id
+          )) as Book;
           if (bookWillUpdate === null) {
             continue;
           }
-          await this.bookReponsitory.updateOne(bookWillUpdate as Book);
+          await this.bookReponsitory.updateOne(
+            bookWillUpdate._id,
+            bookWillUpdate as Book
+          );
         }
         resolve("Done");
       } catch (error) {

@@ -8,11 +8,6 @@ export * from "./interfaces/icart.controller";
 export * from "./cart.controller";
 // Cart - END
 
-// Category - START
-export * from "./interfaces/icategory.controller";
-export * from "./category.controller";
-// Category - END
-
 // Home - START
 export * from "./interfaces/ihome.controller";
 export * from "./home.controller";

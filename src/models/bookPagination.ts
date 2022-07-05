@@ -1,5 +1,9 @@
 import { Book } from "../repositories";
 
+export type Pagination = {
+  limit : number;
+  page: number;
+}
 
 export type BookPagination = {
   data: Book[];
@@ -7,4 +11,3 @@ export type BookPagination = {
   page: number;
   length: number;
 };
-

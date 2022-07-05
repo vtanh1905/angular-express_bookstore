@@ -7,31 +7,27 @@ import { BaseReponsitory } from "./base.reponsitory";
 const schema = new Schema(
   {
     _id: Types.ObjectId,
-    title: { type: String, required: true },
-    image: { type: String, required: true },
-    category: {
-      type: String,
-      required: true,
-      enum: ["drama", "comedy", "sport"],
-    },
-    quantity: { type: Number, required: true },
-    price: { type: String, required: true },
-    description: { type: String, required: true },
+    email: { type: String, required: true },
+    password: { type: String, required: true },
   },
   { versionKey: false }
 );
 
-export type Book = InferSchemaType<typeof schema>;
+export type User = InferSchemaType<typeof schema>;
 
-@fluentProvide("BookReponsitory").inSingletonScope().done()
-export class BookReponsitory extends BaseReponsitory<Book> {
+@fluentProvide("UserReponsitory").inSingletonScope().done()
+export class UserReponsitory extends BaseReponsitory<User> {
   constructor(
     @inject("MongooseConnection") private mongooseConnection: MongooseConnection
   ) {
     super();
     this.model = this.mongooseConnection.connection.model(
-      this.modelName,
+      (this.modelName = "users"),
       schema
     );
+  }
+
+  public findByEmail(email: string): Promise<User | object> {
+    return this.model.find({ email }).exec();
   }
 }

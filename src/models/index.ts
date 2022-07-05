@@ -1,4 +1,4 @@
 export * from './user.model'
-export * from './book.model'
-export * from './cart.model'
-export * from './other.model'
+export * from './bookPagination'
+export * from './cartItem'
+export * from './requestUser'
