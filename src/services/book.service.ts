@@ -9,7 +9,7 @@ import { Book, BookReponsitory } from "../repositories";
 @provide(TYPES.BookService)
 export class BookService implements IBookService {
   constructor(
-    @inject("BookReponsitory") private bookReponsitory: BookReponsitory
+    @inject(TYPES.BookReponsitory) private bookReponsitory: BookReponsitory
   ) {}
 
   public getAll(pagination: Pagination): Promise<Book[]> {
@@ -53,15 +53,16 @@ export class BookService implements IBookService {
     return new Promise<any>(async (resolve, reject) => {
       try {
         for (let i = 0; i < arr.length; ++i) {
-          const bookWillUpdate: Book = (await this.bookReponsitory.findOne(
+          const bookWillUpdate: Book[] = (await this.bookReponsitory.findOne(
             arr[i]._id
-          )) as Book;
-          if (bookWillUpdate === null) {
+          )) as Book[];
+          if (bookWillUpdate.length === 0) {
             continue;
           }
+
           await this.bookReponsitory.updateOne(
-            bookWillUpdate._id,
-            bookWillUpdate as Book
+            bookWillUpdate[0]._id,
+            bookWillUpdate[0] as Book
           );
         }
         resolve("Done");

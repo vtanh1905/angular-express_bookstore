@@ -1,8 +1,10 @@
 import { inject } from "inversify";
 import { fluentProvide } from "inversify-binding-decorators";
-import { Model, Schema, InferSchemaType, Types } from "mongoose";
+import { Schema, InferSchemaType, Types } from "mongoose";
+
 import { MongooseConnection } from "../utils/mongoose/mongooseConnection";
 import { BaseReponsitory } from "./base.reponsitory";
+import { TYPES } from "../constants";
 
 const schema = new Schema(
   {
@@ -15,10 +17,11 @@ const schema = new Schema(
 
 export type User = InferSchemaType<typeof schema>;
 
-@fluentProvide("UserReponsitory").inSingletonScope().done()
+@fluentProvide(TYPES.UserReponsitory).inSingletonScope().done()
 export class UserReponsitory extends BaseReponsitory<User> {
   constructor(
-    @inject("MongooseConnection") private mongooseConnection: MongooseConnection
+    @inject(TYPES.MongooseConnection)
+    private mongooseConnection: MongooseConnection
   ) {
     super();
     this.model = this.mongooseConnection.connection.model(

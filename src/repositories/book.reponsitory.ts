@@ -1,8 +1,9 @@
 import { inject } from "inversify";
 import { fluentProvide } from "inversify-binding-decorators";
-import { Model, Schema, InferSchemaType, Types } from "mongoose";
+import { Schema, InferSchemaType, Types } from "mongoose";
 import { MongooseConnection } from "../utils/mongoose/mongooseConnection";
 import { BaseReponsitory } from "./base.reponsitory";
+import { TYPES } from "../constants";
 
 const schema = new Schema(
   {
@@ -23,10 +24,10 @@ const schema = new Schema(
 
 export type Book = InferSchemaType<typeof schema>;
 
-@fluentProvide("BookReponsitory").inSingletonScope().done()
+@fluentProvide(TYPES.BookReponsitory).inSingletonScope().done()
 export class BookReponsitory extends BaseReponsitory<Book> {
   constructor(
-    @inject("MongooseConnection") private mongooseConnection: MongooseConnection
+    @inject(TYPES.MongooseConnection) private mongooseConnection: MongooseConnection
   ) {
     super();
     this.model = this.mongooseConnection.connection.model(

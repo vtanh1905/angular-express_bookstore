@@ -10,7 +10,7 @@ import { User, UserReponsitory } from "../repositories";
 @provide(TYPES.UserService)
 export class UserService implements IUserService {
   constructor(
-    @inject("UserReponsitory") private userReponsitory: UserReponsitory
+    @inject(TYPES.UserReponsitory) private userReponsitory: UserReponsitory
   ) {}
 
   public newUser(user: User): Promise<User> {
