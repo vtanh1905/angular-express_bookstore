@@ -2,7 +2,7 @@ import { inject } from "inversify";
 import { fluentProvide } from "inversify-binding-decorators";
 import { Schema, InferSchemaType, Types } from "mongoose";
 
-import { MongooseConnection } from "../utils/mongoose/mongooseConnection";
+import { MongooseConnection } from "../utils/mongoose";
 import { BaseReponsitory } from "./base.reponsitory";
 import { TYPES } from "../constants";
 

@@ -2,14 +2,23 @@ import { controller, httpGet } from "inversify-express-utils";
 import { Request, Response } from "express";
 
 import { IHomeController } from "./interfaces/ihome.controller";
+import { inject } from "inversify";
+
+import { S3Service } from "../utils";
 
 @controller("")
 export class HomeController implements IHomeController {
-  constructor() {}
+  constructor(@inject("S3Service") private s3Service: S3Service) {}
 
   @httpGet("/")
   public async get(req: Request, res: Response): Promise<number> {
     res.sendFile("./web/dist/index.html");
+    return 1;
+  }
+
+  @httpGet("/upload")
+  public async upload(req: Request, res: Response): Promise<number> {
+    res.send(await this.s3Service.upload(__dirname + "/./test-upload.txt"))
     return 1;
   }
 }
