@@ -28,4 +28,5 @@ Access to http://localhost:3000/
 | Set up Enviroment | ❌ |
 | Set up Logger | ❌ |
 | Set up tslint.json file | ❌ |
-| S3 Service | ❌ |
+| S3 Service | ✅ |
+| S3 Service Full Feature | ❌ |
