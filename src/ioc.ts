@@ -7,7 +7,7 @@ import { buildProviderModule } from "inversify-binding-decorators";
 // and use buildProviderModule to active this feature 
 import "./controllers";
 import "./services";
-import "./utils/mongoose/mongooseConnection";
+import "./utils";
 import "./repositories";
 
 // set up container
