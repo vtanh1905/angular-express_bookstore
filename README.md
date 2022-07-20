@@ -30,3 +30,4 @@ Access to http://localhost:3000/
 | Set up tslint.json file | ❌ |
 | S3 Service | ✅ |
 | S3 Service Full Feature | ❌ |
+| Refactor structural project | ❌ |
