@@ -17,3 +17,7 @@ export * from "./home.controller";
 export * from "./interfaces/iuser.controller";
 export * from "./user.controller";
 // User - END
+
+// Seed Data - START
+export * from "./seed-data.controller"
+// Seed Data  - END
