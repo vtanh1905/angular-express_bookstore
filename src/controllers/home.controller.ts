@@ -6,6 +6,8 @@ import { inject } from "inversify";
 
 import { S3Service } from "../utils";
 
+import { env } from "../constants";
+
 @controller("")
 export class HomeController implements IHomeController {
   constructor(@inject("S3Service") private s3Service: S3Service) {}
@@ -16,9 +18,9 @@ export class HomeController implements IHomeController {
     return 1;
   }
 
-  @httpGet("/upload")
+  @httpGet("/test")
   public async upload(req: Request, res: Response): Promise<number> {
-    res.send(await this.s3Service.upload(__dirname + "/./test-upload.txt"))
+    res.send(env);
     return 1;
   }
 }

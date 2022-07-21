@@ -22,6 +22,7 @@ Access to http://localhost:3000/
 | To do | Status |
 | ------ | ------ |
 | Create a mongoose class | ✅ |
+| Mongoose class async Promise | ❌ |
 | ErrorHandler| ❌ |
 | Refactor model folder | ✅ |
 | Seed Data | ❌ |
@@ -30,3 +31,4 @@ Access to http://localhost:3000/
 | Set up tslint.json file | ❌ |
 | S3 Service | ✅ |
 | S3 Service Full Feature | ❌ |
+
