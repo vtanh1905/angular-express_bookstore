@@ -36,3 +36,4 @@ Access to http://localhost:3000/
 | S3 Service | ✅ |
 | S3 Service Full Feature | ❌ |
 | Refactor structural project | ❌ |
+| Improve the speed of starting the project | ✅ |

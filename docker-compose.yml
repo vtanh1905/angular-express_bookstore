@@ -24,7 +24,7 @@ services:
     container_name: server
     command: npm run start:dev
     volumes:
-      - .:/src
+      - ./src:/workdir/src
     ports:
       - 3000:3000
     environment:
