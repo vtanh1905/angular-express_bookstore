@@ -5,6 +5,14 @@ interface EnviromentVariable {
   MONGO_INITDB_ROOT_PASSWORD: string,
   MONGO_INITDB_DATABASE: string,
 
+  // Security
+  JWT_TOKEN_SECRET: string,
+
+  // S3 Service
+  BUCKET_NAME:string,
+  ACCESS_KEY_ID:string,
+  SECRET_ACCESS_KEY:string,
+
   // Server
   NODE_ENV: string,
   PORT: number

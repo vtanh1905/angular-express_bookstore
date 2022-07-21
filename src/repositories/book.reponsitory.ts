@@ -31,7 +31,7 @@ export class BookReponsitory extends BaseReponsitory<Book> {
   ) {
     super();
     this.model = this.mongooseConnection.connection.model(
-      this.modelName,
+      this.modelName = "books",
       schema
     );
   }
