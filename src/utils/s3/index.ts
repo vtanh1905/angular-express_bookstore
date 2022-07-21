@@ -3,15 +3,17 @@ import fs from "fs";
 import path from "path";
 import { fluentProvide } from "inversify-binding-decorators";
 
+import { env } from '../../constants';
+
 @fluentProvide("S3Service").inSingletonScope().done()
 export class S3Service {
   private s3: AWS.S3;
-  private bucketName: string = "s3-assign";
+  private bucketName: string = env.BUCKET_NAME;
 
   constructor() {
     AWS.config.update({
-      accessKeyId: "<AccessKeyId>",
-      secretAccessKey: "<SecretAccessKey>",
+      accessKeyId: env.ACCESS_KEY_ID,
+      secretAccessKey: env.SECRET_ACCESS_KEY,
     });
     this.s3 = new AWS.S3();
   }

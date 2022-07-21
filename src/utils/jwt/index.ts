@@ -1,9 +1,11 @@
 import * as jwt from "jsonwebtoken";
 import { Response, NextFunction } from "express";
+
 import { RequestUser } from "../../models";
+import { env } from '../../constants';
 
 export function generateAccessToken(json: Object) {
-  return jwt.sign(json, "TOKEN_SECRET", { expiresIn: "180000s" });
+  return jwt.sign(json, env.JWT_TOKEN_SECRET, { expiresIn: "180000s" });
 }
 
 export function authenticateToken(
@@ -24,12 +26,9 @@ export function authenticateToken(
     token = arrParamsHeader[1];
   }
 
-  jwt.verify(token, "TOKEN_SECRET", (err: any, user: any) => {
-    // console.log(err)
-
+  jwt.verify(token, env.JWT_TOKEN_SECRET, (err: any, user: any) => {
     if (err) return res.sendStatus(403);
     req.user = user;
-
     next();
   });
 }
