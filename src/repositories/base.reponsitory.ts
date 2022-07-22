@@ -35,4 +35,8 @@ export abstract class BaseReponsitory<EntityType> implements IBaseReponsitory<En
   public updateOne(_id: any, entity: EntityType): Promise<any> {
     return this.model.updateOne({ _id }, entity).exec();
   }
+
+  public insertMany(entities: EntityType[]): Promise<any> {
+    return this.model.insertMany(entities);
+  }
 }

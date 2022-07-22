@@ -29,7 +29,8 @@ Access to http://localhost:3000/
 | Mongoose class async Promise | ❌ |
 | ErrorHandler| ❌ |
 | Refactor model folder | ✅ |
-| Seed Data | ❌ |
+| Seed Data | ✅ |
+| Seed Data Best Practise | ❌ |
 | Set up Enviroment | ✅ |
 | Set up Logger | ❌ |
 | Set up tslint.json file | ❌ |
