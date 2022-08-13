@@ -10,11 +10,7 @@ const schema = new Schema(
     _id: Types.ObjectId,
     title: { type: String, required: true },
     image: { type: String, required: true },
-    category: {
-      type: String,
-      required: true,
-      enum: ["drama", "comedy", "sport"],
-    },
+    category: { type: Schema.Types.ObjectId, ref: 'category' },
     quantity: { type: Number, required: true },
     price: { type: String, required: true },
     description: { type: String, required: true },
@@ -36,5 +32,9 @@ export class BookReponsitory extends BaseReponsitory<Book> {
       schema, 
       this.modelName
     );
+  }
+
+  public find(limit: number = 255, skip: number = 0): Promise<Book[]> {
+    return this.model.find({}).populate('category').limit(limit).skip(skip).exec();
   }
 }

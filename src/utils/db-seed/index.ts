@@ -22,12 +22,12 @@ export class SeedDataService {
 
   private seedBooks(): Promise<any> {
     const dataBook : Book[] = [];
-    const categories : string[] = ["drama", "comedy", "sport"];
+    const categories : string[] = ["62f775a41e6d2d489f78e72e", "62f775ad1e6d2d489f78e730", "62f7756a1e6d2d489f78e72b"];
     for(let i = 0; i <= 20; ++i){
       dataBook.push({
         title: faker.name.title(),
         image:  faker.image.imageUrl(),
-        category: categories[faker.datatype.number({min: 0, max: 2})] as "drama"|"comedy"|"sport",
+        category: categories[faker.datatype.number({min: 0, max: 2})] as any,
         quantity: faker.datatype.number(100),
         price: faker.datatype.number({min: 100000, max: 10000000}).toString(),
         description: faker.lorem.paragraph()
