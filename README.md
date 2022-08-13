@@ -1,7 +1,7 @@
 # Expressjs Inversifyjs Practise
 
 ## The reponsitories
-- service   : the area stored the apis
+- service   : the area store the apis
 - site      : the web application
 
 ## Need to imporve the project
