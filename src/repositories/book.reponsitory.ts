@@ -30,9 +30,11 @@ export class BookReponsitory extends BaseReponsitory<Book> {
     @inject(TYPES.MongooseConnection) private mongooseConnection: MongooseConnection
   ) {
     super();
+    this.modelName = "book";
     this.model = this.mongooseConnection.connection.model(
-      this.modelName = "books",
-      schema
+      this.modelName,
+      schema, 
+      this.modelName
     );
   }
 }

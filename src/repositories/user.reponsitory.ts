@@ -24,9 +24,11 @@ export class UserReponsitory extends BaseReponsitory<User> {
     private mongooseConnection: MongooseConnection
   ) {
     super();
+    this.modelName = "user";
     this.model = this.mongooseConnection.connection.model(
-      (this.modelName = "users"),
-      schema
+      this.modelName,
+      schema, 
+      this.modelName
     );
   }
 

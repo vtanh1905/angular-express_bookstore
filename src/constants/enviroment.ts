@@ -4,6 +4,8 @@ interface EnviromentVariable {
   MONGO_INITDB_ROOT_USERNAME: string,
   MONGO_INITDB_ROOT_PASSWORD: string,
   MONGO_INITDB_DATABASE: string,
+  MONGO_INITDB_HOSTNAME: string,
+  MONGO_INITDB_PORT: number,
 
   // Security
   JWT_TOKEN_SECRET: string,

@@ -148,6 +148,28 @@ paths:
           description: Book ID
           schema:
             $ref: '#/definitions/ListCart'
+  /category:
+    get:
+      tags:
+        - Category
+      summary: Get All Category
+      responses:
+        '200':
+          description: OK
+    post:
+      tags:
+        - Category
+      summary: Create A Category
+      responses:
+        '200':
+          description: OK
+      parameters:
+        - in: body
+          name: body
+          description: Object that needs to be added to the store
+          required: true
+          schema:
+            $ref: '#/definitions/CategoryCreate'
 securityDefinitions:
   Bearer:
     type: apiKey
@@ -224,3 +246,11 @@ definitions:
         type: array
         items:
           $ref: '#/definitions/CartItem'
+  CategoryCreate:
+    type: object
+    properties:
+      name:
+        type: string
+      description:
+        type: string
+

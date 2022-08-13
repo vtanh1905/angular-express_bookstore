@@ -4,7 +4,7 @@ const swaggerDocument = require("yamljs").load("./swagger.yaml");
 
 export function applySwagger(app: Application) {
   app.use(
-    "/api",
+    "/docs",
     swaggerUi.serve,
     swaggerUi.setup(swaggerDocument, { explorer: true })
   );

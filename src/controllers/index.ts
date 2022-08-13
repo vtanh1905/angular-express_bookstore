@@ -21,3 +21,5 @@ export * from "./user.controller";
 // Seed Data - START
 export * from "./seed-data.controller"
 // Seed Data  - END
+
+export * from "./category.controller"

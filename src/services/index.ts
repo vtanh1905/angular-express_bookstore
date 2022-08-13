@@ -7,3 +7,5 @@ export * from './book.service'
 export * from './interfaces/iuser.service'
 export * from './user.service'
 // User - END
+
+export * from './category.service'
