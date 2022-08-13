@@ -4,13 +4,12 @@ import { Request } from "express";
 
 import { RequestUser } from "../models";
 import { authenticateToken } from "../utils/jwt";
-import { IUserController } from "./interfaces/iuser.controller";
 import { IUserService } from "../services";
 import { TYPES } from "../constants";
 import { User } from "../repositories";
 
 @controller("")
-export class UserController implements IUserController {
+export class UserController {
   constructor(@inject(TYPES.UserService) private userService: IUserService) {}
 
   @httpPost("/register")

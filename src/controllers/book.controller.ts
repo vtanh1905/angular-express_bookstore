@@ -11,11 +11,10 @@ import { IBookService } from "../services";
 import { inject } from "inversify";
 import { Pagination, RequestUser } from "../models";
 import { authenticateToken } from "../utils/jwt";
-import { IBookController } from "./interfaces/ibook.controller";
 import { TYPES } from "../constants";
 
 @controller("/books")
-export class BookController implements IBookController {
+export class BookController {
   constructor(@inject(TYPES.BookService) private bookService: IBookService) {}
 
   @httpGet("/")

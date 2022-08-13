@@ -1,10 +1,8 @@
 import { controller, httpGet } from "inversify-express-utils";
 import { Request, Response } from "express";
 
-import { IHomeController } from "./interfaces/ihome.controller";
-
 @controller("")
-export class HomeController implements IHomeController {
+export class HomeController {
   constructor() {}
 
   @httpGet("/")
