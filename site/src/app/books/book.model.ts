@@ -2,7 +2,11 @@ export interface Book {
   _id: string,
   title: string,
   image: string,
-  category: string,
+  category: {
+    _id: string,
+    name: string,
+    description: string
+  },
   quantity: number,
   price: string,
   description: string,

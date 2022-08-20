@@ -18,6 +18,9 @@ interface EnviromentVariable {
   // Server
   NODE_ENV: string,
   PORT: number
+
+  // Site
+  URL_SITE: string
 }
 
 export const env : EnviromentVariable = dotenv.config().parsed as unknown as EnviromentVariable;

@@ -22,7 +22,7 @@ export class SeedDataService {
 
   private seedBooks(): Promise<any> {
     const dataBook : Book[] = [];
-    const categories : string[] = ["62f775a41e6d2d489f78e72e", "62f775ad1e6d2d489f78e730", "62f7756a1e6d2d489f78e72b"];
+    const categories : string[] = ["630067689ce97c5fcb8fc932", "630067719ce97c5fcb8fc934", "630067939ce97c5fcb8fc936"];
     for(let i = 0; i <= 20; ++i){
       dataBook.push({
         title: faker.name.title(),
